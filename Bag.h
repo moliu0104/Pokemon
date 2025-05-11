@@ -4,7 +4,9 @@
 #include<iostream>
 #include<ncurses.h>
 #include<vector>
-#include"OwnedPokemon.h"
+#include"Move.h"
+
+#include"FirePokemon.h"
 
 using namespace std;
 

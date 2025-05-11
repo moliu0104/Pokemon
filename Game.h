@@ -4,13 +4,9 @@
 #include<ncurses.h>
 #include<iostream>
 #include<vector>
-#include<chrono>
-#include<thread>
-#include<cstdlib>
-#include<ctime>
 #include"Menu.h"
-#include"WildPokemon.h"
 #include"PokemonDataBase.h"
+#include"ExploreSystem.h"
 
 using namespace std;
 
@@ -21,24 +17,21 @@ private:
 
     int highlight;
 
-    // Main Menu
     vector<string> mainMenuOptions;
+    vector<string> mainMenuTitle;
 
-    // Adventure Menu
     vector<string> adventureOptions;
-
-    // Main Menu
-    int showMainMenu();
-
-    // Adventure Menu
-    void showAdventure();
-
-    void exploreMap(int choice);
+    vector<string> adventureTitle;
 
 public:
     Game();
-    
+    //Methods
     void run();
+    int showMainMenu();
+    int showAdventure();
+    int exploreMap(int choice);
+
+    vector<string> getAdventureOptions();
 
     ~Game();
 };

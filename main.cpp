@@ -3,6 +3,10 @@
 
 int main(){
     Game game;
+    int index = 0;
+    int choice;
+
+    game.run();
 
     return 0;
 }

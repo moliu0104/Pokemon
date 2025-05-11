@@ -10,6 +10,4 @@ int PokemonEntity::getCurrentHP() const { return currentHP; }
 
 int PokemonEntity::getLevel() const { return level; }
 
-string PokemonEntity::getPersonality() const { return personality;}
-
 PokemonEntity::~PokemonEntity(){}

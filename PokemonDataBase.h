@@ -4,7 +4,6 @@
 #include<cstdlib>
 #include<ctime>
 #include"Pokemon.h"
-#include"WildPokemon.h"
 
 class PokemonDataBase{
 private:

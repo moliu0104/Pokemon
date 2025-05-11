@@ -2,7 +2,7 @@
 
 Game::Game(){
 
-    // Main Menu
+    mainMenuTitle = {"========= Pokémon ========"};
     mainMenuOptions = {
         "Adventure",
         "Challenge",
@@ -14,7 +14,7 @@ Game::Game(){
         "Exit"
     };
 
-    // Adventure
+    adventureTitle = {"========= Expedition Routes =========="};
     adventureOptions = {
         "Verdale Grove",
         "Abyria Reef",
@@ -22,131 +22,72 @@ Game::Game(){
         "\n",
         "Exit"
     };
+ 
+}
 
+vector<string> Game::getAdventureOptions(){
+    return adventureOptions;
 }
 
 void Game::run(){
-    showMainMenu();
+    initscr();
+    cbreak();
+    noecho();
+    keypad(stdscr, TRUE);
+    curs_set(0);
+
+    int index = 0;
+    int choice;
+
+    while (1)
+    {   
+        
+        if(index == 0){
+            index  = showMainMenu() + 1;
+        }
+        else if(index == 1){
+            choice = showAdventure();
+
+            if(choice == 4){
+                index = 0;
+                continue;
+            }else{
+                choice = exploreMap(choice);
+                if(choice == 0){
+                    Menu::drawStatus(2, 10, "Myles", 10, 20, 20, true);
+                }else{
+                    index = 1;
+                    continue;
+                }
+                
+            }
+        }
+        else{
+            break;
+        }
+    }
 }
 
 
 int Game::showMainMenu(){
-    vector<string> title = {"========= Pokémon ========"};
 
-   int choice = Menu::drawMenu(mainMenuOptions,title);
+   highlight = Menu::drawMenu(mainMenuOptions,mainMenuTitle);
    
-   switch (choice)
-   {
-   case 0:
-    showAdventure();
-    break;
-   
-   case 7:
-    break;
-   }
-
-   return 0;
+   return highlight;
 
 }
 
-void Game::showAdventure(){
-    vector<string> title = {"========= Expedition Routes =========="};
+int Game::showAdventure(){
 
-    int choice = Menu::drawMenu(adventureOptions,title);
+    highlight = Menu::drawMenu(adventureOptions,adventureTitle);
 
-    switch (choice)
-    {
-    case 0:
-        exploreMap(0);
-        break;
-    case 1:
-        exploreMap(1);
-        break;
-    case 2:
-        exploreMap(2);
-        break;
-    case 4:
-        showMainMenu();
-        break;
-    default:
-        break;
-    }
+    return highlight;
 }
 
-void Game::exploreMap(int choice){
-    initscr();
-    cbreak();
-    noecho();
-    curs_set(0);
-    clear();
-
-    mvprintw(3, 5, ("Exploring " + adventureOptions.at(choice) + "...").c_str());
-    refresh();
-
-    string type;
-
-    switch (choice)
-    {
-    case 0:
-        type = "Grass";
-        break;
+int Game::exploreMap(int choice){
     
-    case 1:
-        type = "Water";
-        break;
-    case 2:
-        type = "Fire";
-        break;
-    }
-
-    srand(time(0));
-    int times = rand()%2 + 2;
-
-    std::this_thread::sleep_for(std::chrono::seconds(times));
-
-    int enterChance = rand() % 100;
-    int stageChance = 60;
-    int stage;
-    int level;
-
-    level = stage * 10 - rand() % 9;
-
-    if(stageChance < 15){
-        stage = 3;
-    }else if(stageChance < 40){
-        stage = 2;
-    }else{
-        stage = 1;
-    }
-
-    vector<Pokemon> wildPokemon;
-
-    if(enterChance < 20){
-        highlight = Menu::drawMenu({"Return to Map Menu", "Keep Exploring"},{"You didn't find any Pokémon"}, 5,7,3,7,2);
-
-    }else{
-        vector<Pokemon> p = allPokemon.findPokemonByType(type);
-
-        for(int i = 0; i < p.size(); i++){
-            if(stage == p[i].getStage()){
-                wildPokemon.push_back(p[i]);
-            }
-        }
-        int index = rand() % wildPokemon.size();
-        vector<string> title = {"You found a Pokémon!","-> Name: " + wildPokemon[index].getName() + " | " + "Leve: " + to_string(level)};
-        highlight = Menu::drawMenu({"Run Away (Return to Map Menu)", "Enter Battel"},title,7,7,3,7,2);
-        
-    }
-
-    if(highlight == 0){
-        showAdventure();
-    }else if(highlight == 1 && enterChance){
-        exploreMap(choice);
-    }else{}    
-    
-    getch();
-
-    endwin();
+    highlight = gameSystem::ExploreSystem::exploreSystem(choice);
+    return highlight;
 }
 
 

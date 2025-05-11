@@ -1,11 +1,11 @@
-#ifndef GRASSPOKEMON_H
-#define GRASSPOKEMON_H
+#ifndef WATERPOKEMON_H
+#define WATERPOKEMON_H
 
 #include"PokemonEntity.h"
 
-class GrassPokemon : public PokemonEntity{
+class WaterPokemon : public PokemonEntity{
     public:
-    GrassPokemon(std::string name,
+    WaterPokemon(std::string name,
                 int level,
                 int stage,
                 int maxHP,
