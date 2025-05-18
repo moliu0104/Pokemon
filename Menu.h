@@ -13,9 +13,6 @@ class Menu{
 public:
     static void initColors();
     static int drawMenu(const vector<string> options, const vector<string> title, int options_y = 3, int options_x = 7, int title_y = 1, int title_x = 5,int options_color = 1, int title_color = 2);
-    static int drawExploreMenu(bool isEntry, string type, int stage, int level);
-    // Battle System
-    static void drawStatus(int y, int x, string name, int lvl,int hp, int maxHp,bool isPlayer);
 };
 
 #endif

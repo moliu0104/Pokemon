@@ -8,14 +8,24 @@
 #include<string>
 #include<ncurses.h>
 #include"Game.h"
+#include"Menu.h"
 #include"RandomUtil.h"
+#include"PokemonDataBase.h"
+#include"PokemonEntity.h"
+#include"FirePokemon.h"
+#include"GrassPokemon.h"
+#include"WaterPokemon.h"
 
-namespace gameSystem{
     class ExploreSystem{
-    public:
-        
-        static int exploreSystem(int choice);
+    private:
+        PokemonEntity* wildPokemon;
+        int drawExploreMenu();
+    public: 
+        ExploreSystem();
+        int run(int choice);
+        void encounterWildPokemon(string type);
+        PokemonEntity* getWildPokemon();
+        ~ExploreSystem();
     };
-}
 
 #endif

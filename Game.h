@@ -7,6 +7,8 @@
 #include"Menu.h"
 #include"PokemonDataBase.h"
 #include"ExploreSystem.h"
+#include"BattleSystem.h"
+#include"Bag.h"
 
 using namespace std;
 

@@ -1,82 +1,94 @@
 #include "PokemonDataBase.h"
 
 PokemonDataBase::PokemonDataBase(){
-    addPokemon(Pokemon(
-        "Bulbasur",
-        "Grass",
-        1,
-        100,
-        {
-            Move("Tackle", "Physical", 10),
-            Move("Vine Whip", "Grass", 20)
-        }
-    ));
-    
-    addPokemon(Pokemon(
-        "Charmander",
-        "Fire",
-        1,
-        100,
-        {
-            Move("Scratch","Physical",10),
-            Move("Ember","Fire",20)
-        }
-    ));
+    ifstream file("PokemonDataBase.txt");
 
-   addPokemon(Pokemon(
-        "Squirtle",
-        "Water",
-        1,
-        100,
-        {
-            Move("Tackle","Physical",10),
-            Move("Water Gun","Water",20)
-
-        }
-    ));
+    if (!file.is_open()) {
+    cerr << "Error: could not open PokemonDataBase.txt\n";
+    }
     
+    string line;
+    while (std::getline(file, line)) {
+        if (line.empty()) continue;
+
+        std::stringstream ss(line);
+        std::string field;
+        std::vector<std::string> parts;
+
+        while (std::getline(ss, field, ',')) {
+            parts.push_back(field);
+        }
+
+        std::string name   = parts[0];
+        std::string type   = parts[1];
+        int stage          = std::stoi(parts[2]);
+        int maxHP          = std::stoi(parts[3]);
+
+        vector<Move> moves;
+
+        for ( int i = 4; i + 2 < parts.size(); i += 3) {
+
+            std::string mName = parts[i];
+            std::string mType = parts[i+1];
+            int mDmg          = std::stoi(parts[i+2]);
+
+            Move move(mName,mType,mDmg);
+            moves.push_back(move);
+        }
+
+        Pokemon pokemon(name,type,stage,maxHP,moves);
+
+        pokemonDB.push_back(pokemon);
+    }
+
 }
 
 void PokemonDataBase::addPokemon(const Pokemon& p){
-    allPokemon.push_back(p);
+    pokemonDB.push_back(p);
 
 }
 
-const Pokemon* PokemonDataBase::findPokemonByName(string name){
-    for(int i = 0; i < allPokemon.size(); i++){
-        if(allPokemon[i].getName() == name){
-            return &allPokemon[i];
+Pokemon* PokemonDataBase::findPokemonByName(string name){
+    for(int i = 0; i < pokemonDB.size(); i++){
+        if(pokemonDB[i].getName() == name){
+            return &pokemonDB[i];
         }
     }
 
     return nullptr;
 }
 
-const vector<Pokemon> PokemonDataBase::findPokemonByType(string type){
+vector<Pokemon> PokemonDataBase::findPokemonByType(string type){
     vector<Pokemon> result;
-    for(int i = 0; i < allPokemon.size(); i ++){
-        if(allPokemon[i].getType() == type){
-            result.push_back(allPokemon[i]);
+    for(int i = 0; i < pokemonDB.size(); i ++){
+        if(pokemonDB[i].getType() == type){
+            result.push_back(pokemonDB[i]);
         }
     }
 
     return result;
 }
 
-const vector<Pokemon>& PokemonDataBase::getAllPokemon(){
-    return allPokemon;
+vector<Pokemon> PokemonDataBase::getAllPokemon(){
+    return pokemonDB;
 }
 
 bool PokemonDataBase::isEmpty() const{
-    return allPokemon.size() == 0;
+    return pokemonDB.size() == 0;
+}
+vector<Pokemon> PokemonDataBase::getRandomPokemonByType(string type){
+    vector<Pokemon> pokemonByType = findPokemonByType(type);
+    int index = util::randInRange(1,pokemonByType.size()/3);
+
+    vector<Pokemon> pokemonChain;
+
+    for(int i = 0; i < 3; i++){
+        pokemonChain.push_back(pokemonByType[((index-1)*3)+i]);
+    }
+
+    return pokemonChain;
 }
 
-const Pokemon PokemonDataBase::getRandomPokemon(){
-    srand(time(0));
-    int index = rand() % allPokemon.size();
-
-    return allPokemon[index];
-}
-
+PokemonDataBase allPokemon;
 
 PokemonDataBase::~PokemonDataBase(){}

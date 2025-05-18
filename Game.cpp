@@ -36,6 +36,14 @@ void Game::run(){
     keypad(stdscr, TRUE);
     curs_set(0);
 
+
+    ExploreSystem explore;
+    Bag bag;
+    explore.encounterWildPokemon("Grass");
+    bag.addPokemon(explore.getWildPokemon());
+
+    BattleSystem battle(bag, explore.getWildPokemon());
+
     int index = 0;
     int choice;
 
@@ -52,15 +60,18 @@ void Game::run(){
                 index = 0;
                 continue;
             }else{
-                choice = exploreMap(choice);
+                choice = explore.run(choice);;
                 if(choice == 0){
-                    Menu::drawStatus(2, 10, "Myles", 10, 20, 20, true);
+                    battle.run();
                 }else{
                     index = 1;
                     continue;
                 }
                 
             }
+        }
+        else if(index == 4){
+
         }
         else{
             break;
@@ -81,12 +92,6 @@ int Game::showAdventure(){
 
     highlight = Menu::drawMenu(adventureOptions,adventureTitle);
 
-    return highlight;
-}
-
-int Game::exploreMap(int choice){
-    
-    highlight = gameSystem::ExploreSystem::exploreSystem(choice);
     return highlight;
 }
 

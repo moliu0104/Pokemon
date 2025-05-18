@@ -1,27 +1,38 @@
 #ifndef POKEMONDATABASE_H
 #define POKEMONDATABASE_H
 
-#include<cstdlib>
-#include<ctime>
-#include"Pokemon.h"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <fstream>
+#include <string>   
+#include <sstream>  
+#include <vector>
+#include "Move.h"
+#include "Pokemon.h"
+#include "RandomUtil.h"
+
+using namespace std;
 
 class PokemonDataBase{
 private:
-    vector<Pokemon> allPokemon;
+    vector<Pokemon> pokemonDB;
 public:
     PokemonDataBase();
 
     void addPokemon(const Pokemon& p);
-    const Pokemon* findPokemonByName(string name) ;
-    const vector<Pokemon> findPokemonByType(string type) ;
+    Pokemon* findPokemonByName(string name) ;
+    vector<Pokemon> findPokemonByType(string type) ;
 
 
-    const vector<Pokemon>& getAllPokemon();
-    const Pokemon getRandomPokemon();
+    vector<Pokemon> getAllPokemon();
+    vector<Pokemon> getRandomPokemonByType(string type);
 
     bool isEmpty() const;
 
     ~PokemonDataBase();
 };
+
+extern PokemonDataBase allPokemon;
 
 #endif

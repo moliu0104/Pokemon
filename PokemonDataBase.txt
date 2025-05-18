@@ -1,0 +1,120 @@
+
+Charmander,Fire,1,150,Scratch,Normal,40,Ember,Fire,50,Flame Charge,Fire,60,Quick Attack,Normal,40
+Charmeleon,Fire,2,200,Ember,Fire,60,Fire Fang,Fire,70,Heat Wave,Fire,80,Slash,Normal,60
+Charizard,Fire,3,250,Flamethrower,Fire,90,Fire Blast,Fire,100,Fire Spin,Fire,70,Slash,Normal,80
+
+Cyndaquil,Fire,1,155,Tackle,Normal,40,Ember,Fire,50,Quick Attack,Normal,40,Flame Charge,Fire,60
+Quilava,Fire,2,205,Ember,Fire,60,Flame Wheel,Fire,70,Quick Attack,Normal,50,Fire Spin,Fire,75
+Typhlosion,Fire,3,255,Flamethrower,Fire,90,Overheat,Fire,110,Quick Attack,Normal,60,Eruption,Fire,120
+
+Torchic,Fire,1,152,Scratch,Normal,40,Ember,Fire,50,Flame Charge,Fire,60,Quick Attack,Normal,40
+Combusken,Fire,2,202,Ember,Fire,60,Fire Punch,Fire,70,Heat Wave,Fire,80,Slash,Normal,60
+Blaziken,Fire,3,252,Blaze Kick,Fire,85,Fire Punch,Fire,70,Flare Blitz,Fire,100,Quick Attack,Normal,60
+
+Litten,Fire,1,150,Tackle,Normal,40,Ember,Fire,50,Quick Attack,Normal,40,Flame Charge,Fire,60
+Torracat,Fire,2,200,Ember,Fire,60,Fire Fang,Fire,70,Fire Spin,Fire,75,Quick Attack,Normal,50
+Incineroar,Fire,3,250,Flamethrower,Fire,90,Overheat,Fire,110,Fire Punch,Fire,70,Quick Attack,Normal,60
+
+Litwick,Fire,1,150,Ember,Fire,50,Flame Burst,Fire,70,Quick Attack,Normal,40,Fire Spin,Fire,60
+Lampent,Fire,2,200,Flame Charge,Fire,60,Fire Fang,Fire,70,Flamethrower,Fire,90,Blaze Kick,Fire,85
+Chandelure,Fire,3,250,Fire Blast,Fire,110,Overheat,Fire,120,Heat Wave,Fire,80,Inferno,Fire,120
+
+Magby,Fire,1,150,Scratch,Normal,40,Ember,Fire,50,Flame Charge,Fire,60,Quick Attack,Normal,40
+Slugma,Fire,2,200,Tackle,Normal,50,Lava Plume,Fire,85,Fire Spin,Fire,75,Ember,Fire,60
+Magcargo,Fire,3,250,Flare Blitz,Fire,90,Heat Wave,Fire,90,Lava Plume,Fire,85,Fire Spin,Fire,75
+
+Tepig,Fire,1,150,Tackle,Normal,40,Ember,Fire,50,Flame Charge,Fire,60,Quick Attack,Normal,40
+Pignite,Fire,2,200,Ember,Fire,60,Flame Wheel,Fire,70,Quick Attack,Normal,50,Fire Spin,Fire,75
+Emboar,Fire,3,250,Flamethrower,Fire,90,Overheat,Fire,110,Flare Blitz,Fire,100,Quick Attack,Normal,60
+
+Fennekin,Fire,1,150,Scratch,Normal,40,Ember,Fire,50,Flame Charge,Fire,60,Quick Attack,Normal,40
+Braixen,Fire,2,200,Fire Spin,Fire,75,Ember,Fire,60,Quick Attack,Normal,50,Flame Charge,Fire,70
+Delphox,Fire,3,250,Flamethrower,Fire,90,Fire Blast,Fire,100,Flame Charge,Fire,80,Quick Attack,Normal,60
+
+Scorbunny,Fire,1,150,Tackle,Normal,40,Ember,Fire,50,Flame Charge,Fire,60,Quick Attack,Normal,40
+Raboot,Fire,2,200,Flame Wheel,Fire,70,Ember,Fire,60,Quick Attack,Normal,50,Fire Spin,Fire,75
+Cinderace,Fire,3,250,Pyro Ball,Fire,90,Flamethrower,Fire,90,Flame Charge,Fire,80,Quick Attack,Normal,60
+
+Chimchar,Fire,1,150,Scratch,Normal,40,Ember,Fire,50,Flame Charge,Fire,60,Quick Attack,Normal,40
+Monferno,Fire,2,200,Ember,Fire,60,Flare Blitz,Fire,100,Quick Attack,Normal,50,Fire Spin,Fire,75
+Infernape,Fire,3,250,Flamethrower,Fire,90,Overheat,Fire,110,Fire Punch,Fire,75,Quick Attack,Normal,60
+
+Bulbasaur,Grass,1,150,Tackle,Normal,40,Vine Whip,Grass,45,Bullet Seed,Grass,25,Quick Attack,Normal,40
+Ivysaur,Grass,2,200,Razor Leaf,Grass,55,Seed Bomb,Grass,80,Magical Leaf,Grass,60,Petal Dance,Grass,120
+Venusaur,Grass,3,250,Solar Beam,Grass,120,Leaf Storm,Grass,130,Petal Blizzard,Grass,90,Power Whip,Grass,120
+
+Chikorita,Grass,1,150,Tackle,Normal,40,Vine Whip,Grass,45,Bullet Seed,Grass,25,Quick Attack,Normal,40
+Bayleef,Grass,2,200,Razor Leaf,Grass,55,Seed Bomb,Grass,80,Magical Leaf,Grass,60,Petal Dance,Grass,120
+Meganium,Grass,3,250,Solar Beam,Grass,120,Leaf Storm,Grass,130,Petal Blizzard,Grass,90,Power Whip,Grass,120
+
+Treecko,Grass,1,150,Tackle,Normal,40,Vine Whip,Grass,45,Bullet Seed,Grass,25,Quick Attack,Normal,40
+Grovyle,Grass,2,200,Razor Leaf,Grass,55,Seed Bomb,Grass,80,Magical Leaf,Grass,60,Petal Dance,Grass,120
+Sceptile,Grass,3,250,Solar Beam,Grass,120,Leaf Storm,Grass,130,Petal Blizzard,Grass,90,Power Whip,Grass,120
+
+Turtwig,Grass,1,150,Tackle,Normal,40,Vine Whip,Grass,45,Bullet Seed,Grass,25,Quick Attack,Normal,40
+Grotle,Grass,2,200,Razor Leaf,Grass,55,Seed Bomb,Grass,80,Magical Leaf,Grass,60,Petal Dance,Grass,120
+Torterra,Grass,3,250,Solar Beam,Grass,120,Leaf Storm,Grass,130,Petal Blizzard,Grass,90,Power Whip,Grass,120
+
+Snivy,Grass,1,150,Tackle,Normal,40,Vine Whip,Grass,45,Bullet Seed,Grass,25,Quick Attack,Normal,40
+Servine,Grass,2,200,Razor Leaf,Grass,55,Seed Bomb,Grass,80,Magical Leaf,Grass,60,Petal Dance,Grass,120
+Serperior,Grass,3,250,Solar Beam,Grass,120,Leaf Storm,Grass,130,Petal Blizzard,Grass,90,Power Whip,Grass,120
+
+Grookey,Grass,1,150,Tackle,Normal,40,Vine Whip,Grass,45,Bullet Seed,Grass,25,Quick Attack,Normal,40
+Thwackey,Grass,2,200,Razor Leaf,Grass,55,Seed Bomb,Grass,80,Magical Leaf,Grass,60,Petal Dance,Grass,120
+Rillaboom,Grass,3,250,Solar Beam,Grass,120,Leaf Storm,Grass,130,Petal Blizzard,Grass,90,Power Whip,Grass,120
+
+Oddish,Grass,1,150,Tackle,Normal,40,Vine Whip,Grass,45,Bullet Seed,Grass,25,Quick Attack,Normal,40
+Gloom,Grass,2,200,Razor Leaf,Grass,55,Seed Bomb,Grass,80,Magical Leaf,Grass,60,Petal Dance,Grass,120
+Vileplume,Grass,3,250,Solar Beam,Grass,120,Leaf Storm,Grass,130,Petal Blizzard,Grass,90,Power Whip,Grass,120
+
+Seedot,Grass,1,150,Tackle,Normal,40,Vine Whip,Grass,45,Bullet Seed,Grass,25,Quick Attack,Normal,40
+Nuzleaf,Grass,2,200,Razor Leaf,Grass,55,Seed Bomb,Grass,80,Magical Leaf,Grass,60,Petal Dance,Grass,120
+Shiftry,Grass,3,250,Solar Beam,Grass,120,Leaf Storm,Grass,130,Petal Blizzard,Grass,90,Power Whip,Grass,120
+
+Hoppip,Grass,1,150,Tackle,Normal,40,Vine Whip,Grass,45,Bullet Seed,Grass,25,Quick Attack,Normal,40
+Skiploom,Grass,2,200,Razor Leaf,Grass,55,Seed Bomb,Grass,80,Magical Leaf,Grass,60,Petal Dance,Grass,120
+Jumpluff,Grass,3,250,Solar Beam,Grass,120,Leaf Storm,Grass,130,Petal Blizzard,Grass,90,Power Whip,Grass,120
+
+Rowlet,Grass,1,150,Tackle,Normal,40,Vine Whip,Grass,45,Bullet Seed,Grass,25,Quick Attack,Normal,40
+Dartrix,Grass,2,200,Razor Leaf,Grass,55,Seed Bomb,Grass,80,Magical Leaf,Grass,60,Petal Dance,Grass,120
+Decidueye,Grass,3,250,Solar Beam,Grass,120,Leaf Storm,Grass,130,Petal Blizzard,Grass,90,Power Whip,Grass,120
+
+Squirtle,Water,1,150,Tackle,Normal,40,Water Gun,Water,50,Bubble,Water,45,Quick Attack,Normal,40
+Wartortle,Water,2,200,Surf,Water,70,Water Pulse,Water,65,Headbutt,Normal,70,Aqua Jet,Water,50
+Blastoise,Water,3,250,Hydro Pump,Water,110,Waterfall,Water,90,Aqua Tail,Water,80,Body Slam,Normal,85
+
+Poliwag,Water,1,150,Tackle,Normal,40,Water Gun,Water,50,Bubble,Water,45,Quick Attack,Normal,40
+Poliwhirl,Water,2,200,Surf,Water,70,Water Pulse,Water,65,Headbutt,Normal,70,Aqua Jet,Water,50
+Poliwrath,Water,3,250,Hydro Pump,Water,110,Waterfall,Water,90,Aqua Tail,Water,80,Body Slam,Normal,85
+
+Horsea,Water,1,150,Tackle,Normal,40,Water Gun,Water,50,Bubble,Water,45,Quick Attack,Normal,40
+Seadra,Water,2,200,Surf,Water,70,Water Pulse,Water,65,Headbutt,Normal,70,Aqua Jet,Water,50
+Kingdra,Water,3,250,Hydro Pump,Water,110,Waterfall,Water,90,Aqua Tail,Water,80,Body Slam,Normal,85
+
+Totodile,Water,1,150,Tackle,Normal,40,Water Gun,Water,50,Bubble,Water,45,Quick Attack,Normal,40
+Croconaw,Water,2,200,Surf,Water,70,Water Pulse,Water,65,Headbutt,Normal,70,Aqua Jet,Water,50
+Feraligatr,Water,3,250,Hydro Pump,Water,110,Waterfall,Water,90,Aqua Tail,Water,80,Body Slam,Normal,85
+
+Mudkip,Water,1,150,Tackle,Normal,40,Water Gun,Water,50,Bubble,Water,45,Quick Attack,Normal,40
+Marshtomp,Water,2,200,Surf,Water,70,Water Pulse,Water,65,Headbutt,Normal,70,Aqua Jet,Water,50
+Swampert,Water,3,250,Hydro Pump,Water,110,Waterfall,Water,90,Aqua Tail,Water,80,Body Slam,Normal,85
+
+Piplup,Water,1,150,Tackle,Normal,40,Water Gun,Water,50,Bubble,Water,45,Quick Attack,Normal,40
+Prinplup,Water,2,200,Surf,Water,70,Water Pulse,Water,65,Headbutt,Normal,70,Aqua Jet,Water,50
+Empoleon,Water,3,250,Hydro Pump,Water,110,Waterfall,Water,90,Aqua Tail,Water,80,Body Slam,Normal,85
+
+Oshawott,Water,1,150,Tackle,Normal,40,Water Gun,Water,50,Bubble,Water,45,Quick Attack,Normal,40
+Dewott,Water,2,200,Surf,Water,70,Water Pulse,Water,65,Headbutt,Normal,70,Aqua Jet,Water,50
+Samurott,Water,3,250,Hydro Pump,Water,110,Waterfall,Water,90,Aqua Tail,Water,80,Body Slam,Normal,85
+
+Froakie,Water,1,150,Tackle,Normal,40,Water Gun,Water,50,Bubble,Water,45,Quick Attack,Normal,40
+Frogadier,Water,2,200,Surf,Water,70,Water Pulse,Water,65,Headbutt,Normal,70,Aqua Jet,Water,50
+Greninja,Water,3,250,Hydro Pump,Water,110,Waterfall,Water,90,Aqua Tail,Water,80,Smokescreen,Normal,0
+
+Popplio,Water,1,150,Tackle,Normal,40,Water Gun,Water,50,Bubble,Water,45,Quick Attack,Normal,40
+Brionne,Water,2,200,Surf,Water,70,Water Pulse,Water,65,Headbutt,Normal,70,Aqua Jet,Water,50
+Primarina,Water,3,250,Hydro Pump,Water,110,Waterfall,Water,90,Aqua Tail,Water,80,Body Slam,Normal,85
+
+Sobble,Water,1,150,Tackle,Normal,40,Water Gun,Water,50,Bubble,Water,45,Quick Attack,Normal,40
+Drizzile,Water,2,200,Surf,Water,70,Water Pulse,Water,65,Headbutt,Normal,70,Aqua Jet,Water,50
+Inteleon,Water,3,250,Hydro Pump,Water,110,Waterfall,Water,90,Aqua Tail,Water,80,Body Slam,Normal,85

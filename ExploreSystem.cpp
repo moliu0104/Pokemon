@@ -1,18 +1,19 @@
 #include"ExploreSystem.h"
 
-namespace gameSystem{
-    int ExploreSystem::exploreSystem(int choice){
-        clear();
-        vector<string> adventureOptions = {
-        "Verdale Grove",
-        "Abyria Reef",
-        "Emberpeak Island",
-        "\n",
-        "Exit"
-        };
+    ExploreSystem::ExploreSystem(){
+        wildPokemon = nullptr;
+    }
 
-        mvprintw(3, 5, ("Exploring " + adventureOptions.at(choice) + "...").c_str());
+    int ExploreSystem::run(int choice){
+        clear();
+
+        mvprintw(3, 5, "Exploring...");
         refresh();
+
+
+        int times = util::randInRange(2,4);
+
+        this_thread::sleep_for(std::chrono::seconds(times));
 
         string type;
 
@@ -23,9 +24,30 @@ namespace gameSystem{
         case 2: type = "Fire"; break;
         }
 
-        int times = util::randInRange(2,4);
+        encounterWildPokemon(type);
 
-        this_thread::sleep_for(std::chrono::seconds(times));
+        choice = drawExploreMenu();
+        
+        endwin();
+
+        return choice;
+    }
+
+    int ExploreSystem::drawExploreMenu(){
+        clear();
+
+        int highlight;
+
+        vector<string> title = {"A Pokémon appeared!","-> Name: " + wildPokemon -> getName() + " | " + "Level: " + to_string(wildPokemon -> getLevel())};
+        highlight = Menu::drawMenu({"Enter Battel","Run Away (Return to Map Menu)" },title,7,7,3,7);
+
+        endwin();
+
+        return highlight;
+    }
+
+    void ExploreSystem::encounterWildPokemon(string type){
+        vector<Pokemon> pokemonChain = allPokemon.getRandomPokemonByType(type);
 
         int stageChance = util::randInRange(0,99);
         int stage;
@@ -36,13 +58,24 @@ namespace gameSystem{
 
         int level = stage * 10 - util::randInRange(0,9);
 
-        int enterChance = util::randInRange(0,99);
-        bool isEntry = (enterChance >= 20);
+        Pokemon wildSpecise;
 
-        choice = Menu::drawExploreMenu(isEntry,type,stage,level);
-        
-        endwin();
+        wildSpecise = pokemonChain[stage-1];
 
-        return choice;
+        if(type == "Fire"){
+            wildPokemon = new FirePokemon(wildSpecise.getName(),wildSpecise.getType(),level,wildSpecise.getStage(),wildSpecise.getMaxHP(),wildSpecise.getMoveSet());
+        }else if (type == "Grass")
+        {
+            wildPokemon = new GrassPokemon(wildSpecise.getName(),wildSpecise.getType(),level,wildSpecise.getStage(),wildSpecise.getMaxHP(),wildSpecise.getMoveSet());
+        }else{
+            wildPokemon = new WaterPokemon(wildSpecise.getName(),wildSpecise.getType(),level,wildSpecise.getStage(),wildSpecise.getMaxHP(),wildSpecise.getMoveSet());
+        }
     }
-}
+
+    PokemonEntity* ExploreSystem::getWildPokemon(){
+        return wildPokemon;
+    }
+
+    ExploreSystem::~ExploreSystem(){
+        delete wildPokemon;
+    }

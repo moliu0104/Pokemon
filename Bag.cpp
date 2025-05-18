@@ -1,21 +1,31 @@
-#include"Bag.h"
+#include "Bag.h"
 
-Bag::Bag(){
-    team = new PokemonEntity*[2];
-    team[1] = nullptr;
+Bag::Bag() {
+    bagSize = 6;
+    count = 0;
+    pokemons = new PokemonEntity*[bagSize];
+    for (int i = 0; i < bagSize; ++i)
+        pokemons[i] = nullptr;
 }
 
-void Bag::addPokemonToParty(OwnedPokemon* pokemon){
-    
+bool Bag::addPokemon(PokemonEntity* p) {
+    if (count < 0 || count >= bagSize || !p) return false;
+    pokemons[count++] = p->clone();
+    return true;
 }
 
-void Bag::switchPokemon(int index1, int index2){
-    
+bool Bag::switchActive(int index) {
+    if (index < 0 || index >= count) return false;
+    std::swap(pokemons[0], pokemons[index]);
+    return true;
 }
-Bag::~Bag(){
-    for(int i = 0; i < 2; i++){
-        delete team[i];
-    }
-    
-    delete[] team;
+
+PokemonEntity* Bag::getActive() {
+    return (count > 0 ? pokemons[0] : nullptr);
+}
+
+Bag::~Bag() {
+    for (int i = 0; i < count; ++i)
+        delete pokemons[i];
+    delete[] pokemons;
 }

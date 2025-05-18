@@ -2,21 +2,25 @@
 
 Pokemon::Pokemon(string name, string type, int stage, int maxHP, vector<Move> moveSet): name(name),type(type),stage(stage),maxHP(maxHP),moveSet(moveSet){}
 
-string Pokemon::getName() const{ 
+string Pokemon::getName(){ 
     return name;
 }
 
-string Pokemon::getType() const{
+string Pokemon::getType(){
     return type;
 }
 
-int Pokemon::getStage() const{
+int Pokemon::getStage(){
     return stage;
 }
 
-int Pokemon::getMaxHP() const{
+int Pokemon::getMaxHP(){
     return maxHP;
 }
+
+ vector<Move> Pokemon::getMoveSet(){
+    return moveSet;
+ }
 
 void Pokemon::setStage(int stage){
     this -> stage = stage;
@@ -32,6 +36,10 @@ void Pokemon::setName(string name){
 
 void Pokemon::setMaxHP(int maxHP){
     this -> maxHP = maxHP;
+}
+
+void Pokemon::addMove(Move move){
+    moveSet.push_back(move);
 }
 
 Pokemon::~Pokemon(){}

@@ -9,26 +9,18 @@ class Move{
 private:
     string name;
     string type;
-    int power;
-    int accuracy;
-    int critRate;
+    int damage;
 
 public:
-    Move(string name, string type, int power);
+    Move(string name, string type, int damage);
 
     // Getter
     string getName();
     string getType();
-    int getPower();
-    int getAccuracy();
-    int getCritRate();
+    int getDamage();
     // Setter
     void setName(string name);
     void setType(string type);
-    void setPower(int power);
-    void setAccuracy(int accuracy);
-    void setCritRate(int critRate);
-
 };
 
 #endif
