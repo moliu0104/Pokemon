@@ -1,0 +1,9 @@
+MONEY 0
+POTION 14
+BALL 7
+POKEMON Treecko Grass 1 1 150 60 
+POKEMON Empoleon Water 24 3 250 0 
+POKEMON Sceptile Grass 30 3 250 70 
+POKEMON Fennekin Fire 2 1 150 0 
+POKEMON Oddish Grass 3 1 150 0 
+POKEMON Snivy Grass 5 1 150 0 

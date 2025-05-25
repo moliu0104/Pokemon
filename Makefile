@@ -1,5 +1,5 @@
-game: Pokemon.cpp Move.cpp PokemonDataBase.cpp PokemonEntity.cpp FirePokemon.cpp GrassPokemon.cpp WaterPokemon.cpp Menu.cpp ExploreSystem.cpp BattleSystem.cpp RandomUtil.cpp Bag.cpp Game.cpp main.cpp
-	g++ Pokemon.cpp Move.cpp PokemonDataBase.cpp PokemonEntity.cpp FirePokemon.cpp GrassPokemon.cpp WaterPokemon.cpp Menu.cpp ExploreSystem.cpp BattleSystem.cpp RandomUtil.cpp Bag.cpp Game.cpp main.cpp -lncurses -o game
+game: Pokemon.cpp PokemonDataBase.cpp PokemonEntity.cpp FirePokemon.cpp GrassPokemon.cpp WaterPokemon.cpp Move.cpp Menu.cpp ExploreSystem.cpp BattleSystem.cpp BagSystem.cpp StoreSystem.cpp RandomUtil.cpp Bag.cpp Player.cpp game.cpp Potion.cpp PokemonBall.cpp main.cpp
+	g++ Pokemon.cpp PokemonDataBase.cpp PokemonEntity.cpp FirePokemon.cpp GrassPokemon.cpp WaterPokemon.cpp Move.cpp Menu.cpp ExploreSystem.cpp BattleSystem.cpp BagSystem.cpp StoreSystem.cpp RandomUtil.cpp Bag.cpp Player.cpp game.cpp Potion.cpp PokemonBall.cpp main.cpp -lncurses -o game
 	./game
 
 testPokemonDataBase: Pokemon.cpp Move.cpp PokemonDataBase.cpp testPokemonDataBase.cpp

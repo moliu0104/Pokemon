@@ -18,13 +18,23 @@
 
     class ExploreSystem{
     private:
+        enum MapOptions{
+            GrassMap,
+            WaterMap,
+            FireMap,
+            Exit
+        };
         PokemonEntity* wildPokemon;
-        int drawExploreMenu();
+
+        bool tryExploring();
+        void encounterWildPokemon(string type);
+
     public: 
         ExploreSystem();
-        int run(int choice);
-        void encounterWildPokemon(string type);
+
+        void run();
         PokemonEntity* getWildPokemon();
+
         ~ExploreSystem();
     };
 

@@ -17,34 +17,33 @@ void Menu::initColors(){
 }
 
 
-int Menu::drawMenu(const vector<string> options, const vector<string> title, int options_y, int options_x, int title_y, int title_x, int options_color,int title_color){
+int Menu::drawMenu(const vector<string> options, const vector<string> title, int options_y, int options_x, int title_y, int title_x){
     initColors();
     // Set backgroud and character color
 
     int highlight = 0;
     int input;
 
-    while(3){
+    while(1){
         bkgd(COLOR_PAIR(2));
         clear();
         refresh();
 
-        attron(COLOR_PAIR(title_color));
+        attron(COLOR_PAIR(2));
         for(int i = 0; i < title.size(); i++){
-            mvprintw(title_y + i,title_x,title[i].c_str());
+            mvprintw(title_y + i,title_x,"%s",title[i].c_str());
         }
-        attroff(COLOR_PAIR(title_color));
+        attroff(COLOR_PAIR(2));
 
         for(int i = 0; i < options.size(); i++){
-            if(options[i] == "\n"){
-                i++;
-            }
-            if(highlight == i){
-                attron(A_REVERSE | COLOR_PAIR(options_color));
-            }
-            mvprintw(i + options_y, options_x, options[i].c_str());
-            if(highlight == i){
-                attroff(A_REVERSE | COLOR_PAIR(options_color));
+            if(i == highlight){
+                attron(COLOR_PAIR(1));
+                mvprintw(options_y+i, options_x, "> %s", options[i].c_str());
+                attroff(COLOR_PAIR(1));
+            }else{
+                attron(COLOR_PAIR(2));
+                mvprintw(options_y+i, options_x, "  %s", options[i].c_str());
+                attroff(COLOR_PAIR(2));
             }
         }
 
@@ -67,9 +66,10 @@ int Menu::drawMenu(const vector<string> options, const vector<string> title, int
             break;
         
         case '\n':
-            endwin();
             return highlight;
         }
     }
 }
+
+
 

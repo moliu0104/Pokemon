@@ -24,7 +24,6 @@ public:
     Pokemon* findPokemonByName(string name) ;
     vector<Pokemon> findPokemonByType(string type) ;
 
-
     vector<Pokemon> getAllPokemon();
     vector<Pokemon> getRandomPokemonByType(string type);
 

@@ -3,6 +3,6 @@
 
 int main(){
     ExploreSystem explore;
-    explore.run(1);
+    explore.run();
     return  0;
 }

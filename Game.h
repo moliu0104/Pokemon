@@ -4,38 +4,23 @@
 #include<ncurses.h>
 #include<iostream>
 #include<vector>
+#include<fstream>
+#include<sstream>
 #include"Menu.h"
 #include"PokemonDataBase.h"
+#include"PokemonEntity.h"
 #include"ExploreSystem.h"
 #include"BattleSystem.h"
 #include"Bag.h"
+#include"Player.h"
 
 using namespace std;
 
 class Game{
-private:
-
-    PokemonDataBase allPokemon;
-
-    int highlight;
-
-    vector<string> mainMenuOptions;
-    vector<string> mainMenuTitle;
-
-    vector<string> adventureOptions;
-    vector<string> adventureTitle;
-
 public:
-    Game();
-    //Methods
-    void run();
-    int showMainMenu();
-    int showAdventure();
-    int exploreMap(int choice);
-
-    vector<string> getAdventureOptions();
-
-    ~Game();
+static void initGame();
+static void saveGame(const string& filename);
+static bool loadGame(const string& filename);
 };
 
 #endif

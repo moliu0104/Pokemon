@@ -20,7 +20,9 @@ class WaterPokemon : public PokemonEntity{
                 int experience,
                 std::vector<Move> moveSet);
 
-    void attack(PokemonEntity* target) override;
+    void attack(PokemonEntity* target,Move move) override;
+    void takeDamage(int damage) override;
+    PokemonEntity* evolve() override;
     WaterPokemon* clone() override;
 
     ~WaterPokemon();

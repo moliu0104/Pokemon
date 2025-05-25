@@ -2,31 +2,64 @@
 #define BATTLESYSTEM_H
 
 #include<string>
+#include<chrono>
+#include<thread>
+#include<cstdlib>
+#include<ctime>
 #include<vector>
 #include<iostream>
 #include<ncurses.h>
 #include"Pokemon.h"
 #include"PokemonDataBase.h"
 #include"Menu.h"
+#include"Move.h"
 #include"Bag.h"
+#include"Player.h"
 
 using namespace std;
 
 
     class BattleSystem{
     private:
-        Bag bag;
         PokemonEntity* wildPokemon;
-        PokemonEntity* player;
-    public:
-        BattleSystem(Bag bag, PokemonEntity* wildPokemon);
+        PokemonEntity* playerPokemon;
+        vector<string> options;
+        int highlight;
+        int height;
+        int width;
+        bool haveballs;
+        bool havePotions;
 
-        int run();
+        enum BattleOptions{
+            Fight,
+            Items,
+            Switch,
+            Run
+        };
+
+        bool fight();
+        void wildPokemonTure();
+        bool usePotion();
+        bool useBall();
+        bool switchPokemon();
+        bool switchAlivePokemon();
+        void runAway();
+        void playerWin();
+
         void drawStatus(int y, int x, PokemonEntity* pokmeon,bool isPlayer);
-        void drawLog(int y, int x, vector<string>& logs); 
-        int drawMainMenu(int y, int x, int selected);
-        int drawMoveMenu(int y, int x,vector<Move> moves,int selected);
+        void drawLog(int y, int x, string log); 
+        int drawItemsMenu(int y, int x);
+        int drawMainMenu(int y, int x);
+        int drawMoveMenu(int y, int x,vector<Move> moves);
+        void drawVictoryScreen(int exp, int gold);
+        void drawDefeatScreen();
+        void drawCaptureScreen();
 
+    public:
+        BattleSystem (PokemonEntity* wildPokemon);
+
+        void run();
+    
         ~BattleSystem();
     };
 
