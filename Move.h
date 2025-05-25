@@ -1,26 +1,34 @@
 #ifndef MOVE_H
 #define MOVE_H
 
-#include<string>
-
+#include <string>
 using namespace std;
 
-class Move{
+// The Move class represents a Pokémon move (attack or skill).
+class Move {
 private:
-    string name;
-    string type;
-    int damage;
+    string name;    // The name of the move (e.g., "Tackle", "Ember")
+    string type;    // The elemental type of the move (e.g., "Fire", "Water")
+    int damage;     // The damage value this move can inflict
 
 public:
+    // Constructor: Initializes a move with a name, type, and damage value
     Move(string name, string type, int damage);
 
-    // Getter
+    // Getter for the move's name
     string getName();
+
+    // Getter for the move's type
     string getType();
+
+    // Getter for the move's damage
     int getDamage();
-    // Setter
+
+    // Setter for the move's name
     void setName(string name);
+
+    // Setter for the move's type
     void setType(string type);
 };
 
-#endif
+#endif // MOVE_H

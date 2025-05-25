@@ -1,15 +1,20 @@
-#include"Move.h"
+#include "Move.h"
 
-Move::Move(string name, string type, int damage): name(name), type(type), damage(damage){}
+// Constructor: initializes the move's name, type, and damage
+Move::Move(string name, string type, int damage)
+    : name(name), type(type), damage(damage) {}
 
-string Move::getName(){
+// Returns the name of the move
+string Move::getName() {
     return name;
 }
 
-string Move::getType(){
+// Returns the type of the move (e.g., Fire, Water)
+string Move::getType() {
     return type;
 }
 
-int Move::getDamage(){
+// Returns the damage value of the move
+int Move::getDamage() {
     return damage;
 }

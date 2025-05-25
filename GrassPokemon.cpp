@@ -1,51 +1,55 @@
-#include"GrassPokemon.h"
+#include "GrassPokemon.h"
 
-GrassPokemon::GrassPokemon(){
-    name = "";
-    type = "";
-    level = 0;
-    stage = 0;
-    maxHP = 0;
-    currentHP = maxHP;
-    experience = 0;
-    moveSet = {};
+// Default constructor for GrassPokemon
+// Initializes all member variables to default (empty or zero) values
+GrassPokemon::GrassPokemon() {
+    name = "";           // Name of the Pokémon (empty string)
+    type = "";           // Type of the Pokémon (empty string)
+    level = 0;           // Level of the Pokémon
+    stage = 0;           // Evolution stage
+    maxHP = 0;           // Maximum health points
+    currentHP = maxHP;   // Current health points, set to maxHP
+    experience = 0;      // Experience points
+    moveSet = {};        // List of moves (empty vector)
 }
 
-GrassPokemon::GrassPokemon(std::string name,std::string type,int level,int stage,int maxHP,std::vector<Move> moveSet):PokemonEntity(name,type,level,stage,maxHP,0,moveSet){}
-GrassPokemon::GrassPokemon(std::string name,std::string type,int level,int stage,int maxHP,int experience,std::vector<Move> moveSet):PokemonEntity(name,type,level,stage,maxHP,experience,moveSet){}
+// Constructor to create a GrassPokemon with specific parameters, with experience defaulted to 0
+GrassPokemon::GrassPokemon(std::string name, std::string type, int level, int stage, int maxHP, std::vector<Move> moveSet)
+    : PokemonEntity(name, type, level, stage, maxHP, 0, moveSet) {}
 
-void GrassPokemon::attack(PokemonEntity* target,Move move){
+// Constructor to create a GrassPokemon with specific parameters, including experience
+GrassPokemon::GrassPokemon(std::string name, std::string type, int level, int stage, int maxHP, int experience, std::vector<Move> moveSet)
+    : PokemonEntity(name, type, level, stage, maxHP, experience, moveSet) {}
+
+// Implements the attack logic for GrassPokemon
+// Applies type effectiveness: Grass is strong against Water, weak against Fire
+void GrassPokemon::attack(PokemonEntity* target, Move move) {
     int damage = move.getDamage();
-    if(move.getType() == "Grass" && target->getType() == "Water"){
-        target->takeDamage(move.getDamage()*1.2);
-    }else if(move.getType() == "Grass" && target->getType() == "Fire"){
-        target->takeDamage(move.getDamage()*0.8);
-    }else{
-        target->takeDamage(move.getDamage());
+    // Super effective: Grass vs. Water (1.2x damage)
+    if (move.getType() == "Grass" && target->getType() == "Water") {
+        target->takeDamage(damage * 1.2);
+    }
+    // Not very effective: Grass vs. Fire (0.8x damage)
+    else if (move.getType() == "Grass" && target->getType() == "Fire") {
+        target->takeDamage(damage * 0.8);
+    }
+    // Normal effectiveness for other types
+    else {
+        target->takeDamage(damage);
     }
 }
 
-void GrassPokemon::takeDamage(int damage){
-    currentHP -= damage;
-    clampHP();
+// Handles receiving damage for GrassPokemon
+// Subtracts damage from currentHP and clamps HP to [0, maxHP]
+void GrassPokemon::takeDamage(int damage) {
+    currentHP -= damage;  // Decrease HP by damage amount
+    clampHP();            // Ensure HP is not less than 0 or more than maxHP
 }
 
-PokemonEntity* GrassPokemon::evolve(){
-    vector<Pokemon> db = allPokemon.findPokemonByType("Water");
-    int index;
-
-    for(int i =0; i < db.size(); i++){
-        if(name == db.at(i).getName()){
-            index = i;
-            break;
-        }
-    }
-
-    return new GrassPokemon(db[index+1].getName(),db[index+1].getType(),db[index+1].getStage()*10,db[index+1].getStage(),0,db[index+1].getMoveSet());
+// Returns a new copy (clone) of this GrassPokemon object
+GrassPokemon* GrassPokemon::clone() {
+    return new GrassPokemon(*this); // Copy constructor is used
 }
 
-GrassPokemon* GrassPokemon::clone(){
-    return new GrassPokemon(*this);
-}
-
-GrassPokemon::~GrassPokemon(){}
+// Destructor - nothing special to clean up, but included for completeness
+GrassPokemon::~GrassPokemon() {}

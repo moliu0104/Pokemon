@@ -18,50 +18,52 @@
 
 using namespace std;
 
+// BattleSystem class handles a full Pokémon battle logic (UI and flow)
+class BattleSystem{
+private:
+    PokemonEntity* wildPokemon;     // Wild Pokémon pointer
+    PokemonEntity* playerPokemon;   // Player's active Pokémon pointer
+    vector<string> options;         // Main menu options (Fight, Items, Switch, Run)
+    int highlight;                  // Currently highlighted menu option
+    int height;                     // Screen height for layout
+    int width;                      // Screen width for layout
+    bool haveballs;                 // Whether player has Pokémon Balls
+    bool havePotions;               // Whether player has Potions
 
-    class BattleSystem{
-    private:
-        PokemonEntity* wildPokemon;
-        PokemonEntity* playerPokemon;
-        vector<string> options;
-        int highlight;
-        int height;
-        int width;
-        bool haveballs;
-        bool havePotions;
-
-        enum BattleOptions{
-            Fight,
-            Items,
-            Switch,
-            Run
-        };
-
-        bool fight();
-        void wildPokemonTure();
-        bool usePotion();
-        bool useBall();
-        bool switchPokemon();
-        bool switchAlivePokemon();
-        void runAway();
-        void playerWin();
-
-        void drawStatus(int y, int x, PokemonEntity* pokmeon,bool isPlayer);
-        void drawLog(int y, int x, string log); 
-        int drawItemsMenu(int y, int x);
-        int drawMainMenu(int y, int x);
-        int drawMoveMenu(int y, int x,vector<Move> moves);
-        void drawVictoryScreen(int exp, int gold);
-        void drawDefeatScreen();
-        void drawCaptureScreen();
-
-    public:
-        BattleSystem (PokemonEntity* wildPokemon);
-
-        void run();
-    
-        ~BattleSystem();
+    // Battle menu choices
+    enum BattleOptions{
+        Fight,                      // Attack
+        Items,                      // Use item
+        Switch,                     // Switch Pokémon
+        Run                         // Run away
     };
 
+    // Core battle flow functions
+    bool fight();                       // Player attacks wild Pokémon
+    void wildPokemonTure();             // Wild Pokémon attacks player
+    bool usePotion();                   // Use a Potion
+    bool useBall();                     // Use a Pokémon Ball
+    bool switchPokemon();               // Switch to another Pokémon (from menu)
+    bool switchAlivePokemon();          // Switch when current Pokémon faints
+    void runAway();                     // Escape from battle
+    void playerWin();                   // Handle win rewards
+
+    // UI/Display helper functions
+    void drawStatus(int y, int x, PokemonEntity* pokmeon, bool isPlayer); // Draw Pokémon info & HP bar
+    void drawLog(int y, int x, string log);                               // Draw a log/message line
+    int drawItemsMenu(int y, int x);                                      // Draw items (Potions/Balls) menu
+    int drawMainMenu(int y, int x);                                       // Draw main battle menu
+    int drawMoveMenu(int y, int x, vector<Move> moves);                   // Draw move selection menu
+    void drawVictoryScreen(int exp, int gold);                            // Draw win screen
+    void drawDefeatScreen();                                              // Draw lose screen
+    void drawCaptureScreen();                                             // Draw catch success screen
+
+public:
+    BattleSystem (PokemonEntity* wildPokemon); // Constructor: needs a wild Pokémon
+
+    void run();            // Main entry to start the battle
+
+    ~BattleSystem();       // Destructor
+};
 
 #endif

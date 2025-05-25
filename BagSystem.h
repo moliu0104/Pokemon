@@ -3,18 +3,20 @@
 
 #include"Menu.h"
 
+// Bag management system (handles bag UI and actions)
 class BagSystem{
+    // Menu options for the bag
     enum BagOptions{
-        Pokemon,
-        Items,
-        Exit
+        Pokemon,  // View Pokemon in bag
+        Items,    // View items
+        Exit      // Exit bag menu
     };
 public:
-    BagSystem();
-    void run();
-    int drawPokeInfo();
-    void drawItemInfo();
-    bool drawSwitchBag();
+    BagSystem();             // Constructor
+    void run();              // Main loop to show bag menu
+    int drawPokeInfo();      // Show Pokémon info
+    void drawItemInfo();     // Show item info
+    bool drawSwitchBag();    // Switch active Pokémon
 };
 
 #endif

@@ -1,28 +1,34 @@
-#include<iostream>
-#include"PokemonDataBase.h"
+#include <iostream>            // For cout/cin
+#include "PokemonDataBase.h"   // For PokemonDataBase, Pokemon, Move
 
-int main(){
-    
+int main() {
+    // Create a PokemonDataBase object (loads data from file)
     PokemonDataBase pokemonDataBase;
+
+    // Get all Pokemon in the database
     vector<Pokemon> allPokemon = pokemonDataBase.getAllPokemon();
 
+    // Loop through each Pokemon and print their information
+    for (int i = 0; i < allPokemon.size(); i++) {
+        // Print basic info
+        std::cout << "name: " << allPokemon[i].getName() << " | ";
+        std::cout << "type: " << allPokemon[i].getType() << " | ";
+        std::cout << "stage: " << allPokemon[i].getStage() << " | ";
+        std::cout << "maxHP: " << allPokemon[i].getMaxHP() << " | ";
+        std::cout << std::endl;
 
-    for(int i = 0; i < allPokemon.size() ; i++){
-        cout << "name: " << allPokemon[i].getName() << " | " ;
-        cout << "type: " << allPokemon[i].getType() << " | " ;
-        cout << "stage: "<< allPokemon[i].getStage() << " | ";
-        cout << "maxHP: " << allPokemon[i].getMaxHP() << " | ";
-        cout << endl;
-        cout << "Move: " << endl;
-
+        // Print move set
+        std::cout << "Move: " << std::endl;
         vector<Move> moveSet = allPokemon[i].getMoveSet();
-        for(int j = 0; j < moveSet.size(); j++){
-            cout << moveSet[j].getName() << " | ";
-            cout << moveSet[j].getType() << " | ";
-            cout << moveSet[j].getDamage() << endl;
+        for (int j = 0; j < moveSet.size(); j++) {
+            std::cout << moveSet[j].getName() << " | ";
+            std::cout << moveSet[j].getType() << " | ";
+            std::cout << moveSet[j].getDamage() << std::endl;
         }
 
-        cout << "--------------------------------------------------------------------" << endl;
+        // Separator line for readability
+        std::cout << "--------------------------------------------------------------------" << std::endl;
     }
+
     return 0;
 }
