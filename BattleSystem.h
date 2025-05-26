@@ -38,16 +38,6 @@ private:
         Run                         // Run away
     };
 
-    // Core battle flow functions
-    bool fight();                       // Player attacks wild Pokémon
-    void wildPokemonTure();             // Wild Pokémon attacks player
-    bool usePotion();                   // Use a Potion
-    bool useBall();                     // Use a Pokémon Ball
-    bool switchPokemon();               // Switch to another Pokémon (from menu)
-    bool switchAlivePokemon();          // Switch when current Pokémon faints
-    void runAway();                     // Escape from battle
-    void playerWin();                   // Handle win rewards
-
     // UI/Display helper functions
     void drawStatus(int y, int x, PokemonEntity* pokmeon, bool isPlayer); // Draw Pokémon info & HP bar
     void drawLog(int y, int x, string log);                               // Draw a log/message line
@@ -62,6 +52,16 @@ public:
     BattleSystem (PokemonEntity* wildPokemon); // Constructor: needs a wild Pokémon
 
     void run();            // Main entry to start the battle
+
+    // Core battle flow functions
+    bool fight();                       // Player attacks wild Pokémon
+    void wildPokemonTure();             // Wild Pokémon attacks player
+    bool usePotion();                   // Use a Potion
+    bool useBall();                     // Use a Pokémon Ball
+    bool switchPokemon();               // Switch to another Pokémon (from menu)
+    bool switchAlivePokemon();          // Switch when current Pokémon faints
+    void runAway();                     // Escape from battle
+    void playerWin();                   // Handle win rewards
 
     ~BattleSystem();       // Destructor
 };
