@@ -86,7 +86,7 @@ int BagSystem::drawPokeInfo(){
         // Print bag info for this slot in a column
         for(int j = 0; j < bagInfo.size(); j++){
             attron(COLOR_PAIR(2));
-            mvprintw(3+j,i*(w_win/colNum),bagInfo[j].c_str());
+            mvprintw(3+j,i*(w_win/colNum),"%s",bagInfo[j].c_str());
             attroff(COLOR_PAIR(2));
         }
         bagInfo.clear(); // Reset for next column
