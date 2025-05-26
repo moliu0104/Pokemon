@@ -10,14 +10,6 @@
 #include "Move.h"
 #include "BattleSystem.h"
 
-// ---- MOCKs for Menu & other UI dependencies ----
-struct Menu {
-    static int drawMenu(...) { return 0; } // Always select first/confirm
-    static void initColors() {}
-};
-
-Player player; // Global player for testing
-
 // Create some test Moves
 Move testFireMove("Flame", "Fire", 50);
 Move testWaterMove("Aqua", "Water", 50);
@@ -38,6 +30,12 @@ GrassPokemon* makeGrass(int lv = 10) {
 }
 
 int main() {
+    initscr();            // Initialize ncurses screen
+    cbreak();             // Disable line buffering
+    noecho();             // Don't display typed characters
+    curs_set(0);          // Hide cursor
+    keypad(stdscr, TRUE); // Enable arrow keys
+
     // Prepare the player's bag with two Pokémon
     player.getBag().addPokemon(makeFire(10));
     player.getBag().addPokemon(makeGrass(10));
@@ -94,6 +92,8 @@ int main() {
     int balls_before = player.getBag().getBallAmount();
     battle.useBall(); // Will try to catch wild2 (fainted, so always succeed/fail)
     assert(player.getBag().getBallAmount() == balls_before - 1);
+
+    endwin();
 
     std::cout << "All BattleSystem logic tests passed!" << std::endl;
     return 0;
