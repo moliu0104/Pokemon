@@ -19,6 +19,14 @@ You can explore different maps, battle wild Pokémon, catch them, and grow your 
 The game is turn-based, text-based, and runs entirely in your terminal.
 
 ---
+## Installation & Environment Setup
+
+### Requirements
+- **C++20** compiler (e.g., `g++` or `clang++`)
+- **make** build tool
+- **ncurses** library
+
+---
 
 ## Installation
 
@@ -30,6 +38,7 @@ cd Pokemon
 
 Build the game:
 ```bash
+cd code
 make game
 ```
 
