@@ -25,6 +25,7 @@ cd Pokemon
 Build the game:
 ```bash
 make game
+```
 
 Run the game:
 ```bash
